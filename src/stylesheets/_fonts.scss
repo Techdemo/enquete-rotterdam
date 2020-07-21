@@ -3,16 +3,17 @@ $primary: #18933c;
 $white: white;
 $heading-font: 'Nunito Sans', sans-serif;
 $primary-font: 'Roboto', sans-serif;
-$black: #333333;
-
+$black: #333;
 
 // The calculation is:
 // min-size + (min-size - max-size) * ( (100vw - min-width) / ( max-width - min-width) )
-@mixin font-responsive($fmin, $fdiff, $breakmin, $breakdiff) {
+@mixin font-responsive( $fmin, $fdiff, $breakmin, $breakdiff ) {
   font-size: calc( #{$fmin} + #{$fdiff} * ((100vw - #{$breakmin}) / #{$breakdiff}) );
-  @media(max-width: $breakmin) {
-      font-size: $fmin;
+  
+  @media (max-width: $breakmin) {
+    font-size: $fmin;
   }
+  
   @media(min-width: round($breakmin + $breakmax)) {
       font-size: round($fmin + $fdiff);
   }
